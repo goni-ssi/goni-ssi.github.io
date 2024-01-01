@@ -1,9 +1,11 @@
 import { PageProps, graphql } from "gatsby";
 import * as React from "react";
 
-const IndexPage = ({ data, location }: PageProps<Queries.IndexPageQuery>) => {
-  console.log("data", data);
-  console.log("location", location);
+const IndexPage = ({
+  data,
+  location,
+  pageContext,
+}: PageProps<Queries.IndexPageQuery>) => {
   return <div>hi</div>;
 };
 
@@ -16,6 +18,14 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allMdx {
+      nodes {
+        frontmatter {
+          title
+          date(formatString: "MMMM DD, YYYY")
+        }
       }
     }
   }

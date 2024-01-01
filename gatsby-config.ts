@@ -5,11 +5,8 @@ require("dotenv").config();
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Goni Log`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://yungo1846.github.io/`,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-vanilla-extract",
@@ -28,6 +25,13 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
