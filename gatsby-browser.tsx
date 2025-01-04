@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Theme } from "@radix-ui/themes";
 import { PageProps } from "gatsby";
 import { ThemeProvider } from "next-themes";
