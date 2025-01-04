@@ -1,5 +1,4 @@
 import Layout from "./src/components/layout";
-import "@radix-ui/themes/styles.css";
 
 // global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapPageElement)
 export const wrapPageElement = ({

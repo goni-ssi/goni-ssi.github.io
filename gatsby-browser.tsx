@@ -1,5 +1,7 @@
+import { Theme } from "@radix-ui/themes";
 import Layout from "./src/components/layout";
-import "@radix-ui/themes/styles.css";
+import { ThemeProvider } from "next-themes";
+import "./src/styles/global.css";
 
 // global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapPageElement)
 export const wrapPageElement = ({
@@ -11,7 +13,13 @@ export const wrapPageElement = ({
 }) => {
   // props provide same data to Layout as Page element will get
   // including location, data, etc - you don't need to pass it
-  return <Layout {...props}>{element}</Layout>;
+  return (
+    <ThemeProvider attribute="class">
+      <Theme accentColor="indigo" appearance="light">
+        <Layout {...props}>{element}</Layout>
+      </Theme>
+    </ThemeProvider>
+  );
 };
 
 // Provider를 포함한 global 상태 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapRootElement)

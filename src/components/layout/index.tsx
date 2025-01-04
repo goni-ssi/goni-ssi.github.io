@@ -1,12 +1,20 @@
 import { MDXProvider } from "@mdx-js/react";
 import { PageProps } from "gatsby";
+import { containerCss, contentCss, footerCss, headerCss } from "./index.css";
 
 const Layout = ({ children }: PageProps) => {
   return (
-    <header>
-      <div>이건 헤더여</div>
-      <MDXProvider components={{}}>{children}</MDXProvider>
-    </header>
+    <div className={containerCss}>
+      <header className={headerCss}>
+        <div>이건 헤더여</div>
+      </header>
+      <section className={contentCss}>
+        <MDXProvider components={{}}>{children}</MDXProvider>
+      </section>
+      <footer className={footerCss}>
+        <div>이건 푸터야</div>
+      </footer>
+    </div>
   );
 };
 
