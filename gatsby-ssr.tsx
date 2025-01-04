@@ -1,7 +1,7 @@
 import Layout from "./src/components/layout";
 import "@radix-ui/themes/styles.css";
 
-// global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapPageElement)
+// global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapPageElement)
 export const wrapPageElement = ({
   element,
   props,
@@ -14,7 +14,7 @@ export const wrapPageElement = ({
   return <Layout {...props}>{element}</Layout>;
 };
 
-// Provider를 포함한 global 상태 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapRootElement)
+// Provider를 포함한 global 상태 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapRootElement)
 // export const wrapRootElement = ({ element }) => {
 //   return <SomeProvider>{element}</SomeProvider>;
 // };

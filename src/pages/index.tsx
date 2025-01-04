@@ -1,7 +1,7 @@
 import { PageProps, graphql } from "gatsby";
 
 const IndexPage = ({ data, location }: PageProps<Queries.IndexPageQuery>) => {
-  return <div>메인 페지</div>;
+  return <div>메인 페이지</div>;
 };
 
 export default IndexPage;
