@@ -8,6 +8,7 @@ const config: GatsbyConfig = {
     siteUrl: `https://yungo1846.github.io/`,
   },
   graphqlTypegen: true,
+  jsxRuntime: "automatic",
   plugins: [
     "gatsby-plugin-vanilla-extract",
     "gatsby-plugin-image",
