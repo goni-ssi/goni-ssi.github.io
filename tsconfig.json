@@ -107,5 +107,6 @@
     "./gatsby-browser.tsx",
     "./gatsby-config.ts",
     "./plugins/**/*"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }

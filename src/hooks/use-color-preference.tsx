@@ -31,7 +31,7 @@ export const ColorPreferenceProvider = ({
       colorPreference,
       setColorPreference,
     };
-  }, [colorPreference, setColorPreference]);
+  }, [colorPreference]);
 
   return (
     <ColorPreferenceContext.Provider value={value}>

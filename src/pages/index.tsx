@@ -1,7 +1,5 @@
 import { PageProps, graphql } from "gatsby";
 
-import { Button, Text } from "@radix-ui/themes";
-
 const IndexPage = ({ data, location }: PageProps<Queries.IndexPageQuery>) => {
   return <div className="head"></div>;
 };
