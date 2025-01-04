@@ -1,4 +1,4 @@
-import Layout from "./src/components/layout";
+import { GlobalLayout } from "./src/components/global-layout";
 
 // global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapPageElement)
 export const wrapPageElement = ({
@@ -10,7 +10,7 @@ export const wrapPageElement = ({
 }) => {
   // props provide same data to Layout as Page element will get
   // including location, data, etc - you don't need to pass it
-  return <Layout {...props}>{element}</Layout>;
+  return <GlobalLayout {...props}>{element}</GlobalLayout>;
 };
 
 // Provider를 포함한 global 상태 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapRootElement)

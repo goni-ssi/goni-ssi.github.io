@@ -1,5 +1,5 @@
 import { Theme } from "@radix-ui/themes";
-import Layout from "./src/components/layout";
+import { GlobalLayout } from "./src/components/global-layout";
 import { ThemeProvider } from "next-themes";
 import "./src/styles/global.css";
 
@@ -16,7 +16,7 @@ export const wrapPageElement = ({
   return (
     <ThemeProvider attribute="class">
       <Theme accentColor="indigo" appearance="light">
-        <Layout {...props}>{element}</Layout>
+        <GlobalLayout {...props}>{element}</GlobalLayout>
       </Theme>
     </ThemeProvider>
   );
