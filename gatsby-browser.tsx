@@ -1,6 +1,12 @@
 import { Theme } from "@radix-ui/themes";
-import { GlobalLayout } from "./src/components/global-layout";
+import { PageProps } from "gatsby";
 import { ThemeProvider } from "next-themes";
+import { ReactNode } from "react";
+import { GlobalLayout } from "./src/components/global-layout";
+import {
+  ColorPreferenceProvider,
+  useColorPreference,
+} from "./src/hooks/use-color-preference";
 import "./src/styles/global.css";
 
 // global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapPageElement)
@@ -8,14 +14,14 @@ export const wrapPageElement = ({
   element,
   props,
 }: {
-  element: any;
-  props: any;
+  element: ReactNode;
+  props: PageProps;
 }) => {
-  // props provide same data to Layout as Page element will get
-  // including location, data, etc - you don't need to pass it
+  const { colorPreference } = useColorPreference();
+
   return (
     <ThemeProvider attribute="class">
-      <Theme accentColor="indigo" appearance="light">
+      <Theme accentColor="indigo" appearance={colorPreference}>
         <GlobalLayout {...props}>{element}</GlobalLayout>
       </Theme>
     </ThemeProvider>
@@ -23,6 +29,6 @@ export const wrapPageElement = ({
 };
 
 // Provider를 포함한 global 상태 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapRootElement)
-// export const wrapRootElement = ({ element }) => {
-//   return <SomeProvider>{element}</SomeProvider>;
-// };
+export const wrapRootElement = ({ element }: { element: ReactNode }) => {
+  return <ColorPreferenceProvider>{element}</ColorPreferenceProvider>;
+};
