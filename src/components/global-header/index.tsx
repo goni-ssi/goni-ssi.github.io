@@ -11,7 +11,7 @@ export const GlobalHeader = () => {
         {/* <Text size="8" weight="bold">
         </Text> */}
       </a>
-      test
+      이제 메인 브랜치
       <button
         onClick={() => {
           setTheme((prev) => (prev === "light" ? "dark" : "light"));
