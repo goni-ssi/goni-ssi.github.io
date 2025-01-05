@@ -1,0 +1,36 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies with pnpm
+        run: pnpm install
+
+      - name: create env
+        run: |
+          touch .env
+          echo "GA_ID=${{ secrets.GA_ID }}" >> .env
+
+      - name: gatsby build
+        run: pnpm build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: public
