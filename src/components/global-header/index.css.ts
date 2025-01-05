@@ -1,4 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css";
+import { adaptive } from "../../styles/colors";
 
 export const HEADER_HEIGHT = 60;
 
@@ -12,7 +13,7 @@ export const headerCss = style({
 export const homeLinkCss = style({
   marginLeft: 20,
   padding: "10px 20px",
-  color: "var(--grey-12)",
+  color: adaptive.gray12,
   fontSize: 32,
 });
 

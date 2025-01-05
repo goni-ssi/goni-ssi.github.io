@@ -6,12 +6,8 @@ export const GlobalHeader = () => {
 
   return (
     <header className={headerCss}>
-      <a className={homeLinkCss}>
-        Goni
-        {/* <Text size="8" weight="bold">
-        </Text> */}
-      </a>
-      이제 메인 브랜치
+      <a className={homeLinkCss}>Goni</a>
+
       <button
         onClick={() => {
           setTheme((prev) => (prev === "light" ? "dark" : "light"));
