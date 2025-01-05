@@ -1,4 +1,3 @@
-import { Switch } from "@radix-ui/themes";
 import { darkModeCss, headerCss, homeLinkCss, lightModeCss } from "./index.css";
 import { useTheme } from "../../hooks/use-theme";
 
@@ -12,7 +11,7 @@ export const GlobalHeader = () => {
         {/* <Text size="8" weight="bold">
         </Text> */}
       </a>
-
+      test
       <button
         onClick={() => {
           setTheme((prev) => (prev === "light" ? "dark" : "light"));

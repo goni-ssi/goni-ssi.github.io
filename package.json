@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "pnpm build && gh-pages -d public -b main",
+    "deploy": "pnpm build  && rm -rf ./node_modules/.cache/gh-pages && gh-pages -d public",
     "eslint": "eslint src"
   },
   "dependencies": {
