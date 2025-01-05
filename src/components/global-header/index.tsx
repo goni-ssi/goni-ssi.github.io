@@ -1,9 +1,9 @@
-import { Switch, Text } from "@radix-ui/themes";
-import { headerCss, homeLinkCss } from "./index.css";
-import { useColorPreference } from "../../hooks/use-color-preference";
+import { Switch } from "@radix-ui/themes";
+import { darkModeCss, headerCss, homeLinkCss, lightModeCss } from "./index.css";
+import { useTheme } from "../../hooks/use-theme";
 
 export const GlobalHeader = () => {
-  const { colorPreference, setColorPreference } = useColorPreference();
+  const { theme, setTheme } = useTheme();
 
   return (
     <header className={headerCss}>
@@ -13,12 +13,14 @@ export const GlobalHeader = () => {
         </Text> */}
       </a>
 
-      <Switch
-        checked={colorPreference === "dark"}
+      <button
         onClick={() => {
-          setColorPreference((prev) => (prev === "light" ? "dark" : "light"));
+          setTheme((prev) => (prev === "light" ? "dark" : "light"));
         }}
-      />
+      >
+        <span className={darkModeCss}>🌙</span>
+        <span className={lightModeCss}>☀️</span>
+      </button>
     </header>
   );
 };
