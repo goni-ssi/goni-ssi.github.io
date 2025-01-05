@@ -30,6 +30,11 @@ export const wrapPageElement = ({
 };
 
 // Provider를 포함한 global 상태 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapRootElement)
-export const wrapRootElement = ({ element }: { element: ReactNode }) => {
+export const wrapRootElement = ({
+  element,
+}: {
+  pathname: string;
+  element: ReactNode;
+}) => {
   return <ColorPreferenceProvider>{element}</ColorPreferenceProvider>;
 };

@@ -8,9 +8,9 @@ export const GlobalHeader = () => {
   return (
     <header className={headerCss}>
       <a className={homeLinkCss}>
-        <Text size="8" weight="bold">
-          Goni
-        </Text>
+        Goni
+        {/* <Text size="8" weight="bold">
+        </Text> */}
       </a>
 
       <Switch

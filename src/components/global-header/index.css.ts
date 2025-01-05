@@ -13,4 +13,5 @@ export const homeLinkCss = style({
   marginLeft: 20,
   padding: "10px 20px",
   color: "var(--grey-12)",
+  fontSize: 32,
 });
