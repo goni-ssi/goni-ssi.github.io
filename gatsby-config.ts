@@ -24,12 +24,21 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
+
     "gatsby-plugin-mdx",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
         path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /src\/images\/.*\.svg/,
+        },
       },
     },
     "gatsby-plugin-sharp",

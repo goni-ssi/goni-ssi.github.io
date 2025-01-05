@@ -1,9 +1,12 @@
-import { footerCss } from "./index.css";
+import { Text } from "@radix-ui/themes";
+import { footerCss, rightTxtCss } from "./index.css";
 
 export const GlobalFooter = () => {
   return (
     <footer className={footerCss}>
-      <div>이건 푸터야</div>
+      <Text size="3" color="gray" className={rightTxtCss}>
+        Goni{"'"}s blog. All rights reserved.
+      </Text>
     </footer>
   );
 };
