@@ -13,6 +13,7 @@ import {
   Header6,
 } from "../mdx/headers";
 import { BlockQuote } from "../mdx/block-quote";
+import { Paragraph } from "../mdx/paragraph";
 
 type Props = Omit<PageProps, "children"> & {
   children: ReactNode;
@@ -32,6 +33,7 @@ export const GlobalLayout = ({ children }: Props) => {
             h5: Header5,
             h6: Header6,
             blockquote: BlockQuote,
+            p: Paragraph,
           }}
         >
           {children}

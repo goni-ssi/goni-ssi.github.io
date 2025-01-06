@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { BlockquoteHTMLAttributes, DetailedHTMLProps } from "react";
-import { blockQuoteCss, innerCss } from "./index.css";
+import { mdxCss } from "../../../styles/mdx.utils";
+import { innerCss } from "./index.css";
 
 type Props = Omit<
   DetailedHTMLProps<
@@ -12,7 +13,13 @@ type Props = Omit<
 
 export const BlockQuote = ({ className, children, ...props }: Props) => {
   return (
-    <blockquote className={clsx(blockQuoteCss, className)} {...props}>
+    <blockquote
+      className={clsx(
+        mdxCss(["padding", "whiteSpace", "wordBreak"]),
+        className
+      )}
+      {...props}
+    >
       <div className={innerCss}>{children}</div>
     </blockquote>
   );
