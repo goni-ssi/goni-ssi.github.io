@@ -10,7 +10,6 @@ const config: GatsbyConfig = {
   jsxRuntime: "automatic",
   plugins: [
     "gatsby-plugin-vanilla-extract",
-    "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -24,14 +23,26 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
-
-    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages`,
+        path: `./src/pages`,
       },
+      __key: "pages",
     },
     {
       resolve: "gatsby-plugin-react-svg",
@@ -41,6 +52,7 @@ const config: GatsbyConfig = {
         },
       },
     },
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -50,14 +62,6 @@ const config: GatsbyConfig = {
         path: "./src/images/",
       },
       __key: "images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: "./src/pages/",
-      },
-      __key: "pages",
     },
     "gatsby-plugin-pnpm",
   ],

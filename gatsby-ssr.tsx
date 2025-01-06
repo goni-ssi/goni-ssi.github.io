@@ -33,8 +33,7 @@ export const onRenderBody = ({ setHeadComponents }: RenderBodyArgs) => {
       key="font-2"
       rel="preconnect"
       href="https://fonts.gstatic.com"
-      // @ts-ignore
-      crossorigin
+      crossOrigin="anonymous"
     />,
     <link
       key="font-3"
