@@ -12,6 +12,7 @@ import {
   Header5,
   Header6,
 } from "../mdx/headers";
+import { BlockQuote } from "../mdx/block-quote";
 
 type Props = Omit<PageProps, "children"> & {
   children: ReactNode;
@@ -24,12 +25,13 @@ export const GlobalLayout = ({ children }: Props) => {
       <section className={contentCss}>
         <MDXProvider
           components={{
-            h1: (props) => <Header1 {...props} />,
-            h2: (props) => <Header2 {...props} />,
-            h3: (props) => <Header3 {...props} />,
-            h4: (props) => <Header4 {...props} />,
-            h5: (props) => <Header5 {...props} />,
-            h6: (props) => <Header6 {...props} />,
+            h1: Header1,
+            h2: Header2,
+            h3: Header3,
+            h4: Header4,
+            h5: Header5,
+            h6: Header6,
+            blockquote: BlockQuote,
           }}
         >
           {children}
