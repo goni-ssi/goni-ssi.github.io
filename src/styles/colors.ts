@@ -8,6 +8,7 @@ const colors = [
   "brown",
   "orange",
   "yellow",
+  "accent",
 ] as const;
 type Color = (typeof colors)[number];
 

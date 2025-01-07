@@ -16,7 +16,7 @@ export const wrapPageElement = ({
 }) => {
   return (
     <ThemeProvider attribute="class" storageKey="theme">
-      <Theme accentColor="indigo">
+      <Theme accentColor="indigo" grayColor="gray">
         <GlobalLayout {...props}>{element}</GlobalLayout>
       </Theme>
     </ThemeProvider>
