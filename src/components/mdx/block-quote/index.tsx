@@ -1,13 +1,7 @@
-import { BlockquoteHTMLAttributes, DetailedHTMLProps } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { innerCss } from "./index.css";
 
-type Props = Omit<
-  DetailedHTMLProps<
-    BlockquoteHTMLAttributes<HTMLQuoteElement>,
-    HTMLQuoteElement
-  >,
-  "ref"
->;
+type Props = ComponentPropsWithoutRef<"blockquote">;
 
 export const BlockQuote = ({ className, children, ...props }: Props) => {
   return (

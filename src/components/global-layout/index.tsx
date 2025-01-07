@@ -15,6 +15,7 @@ import {
 import { BlockQuote } from "../mdx/block-quote";
 import { Paragraph } from "../mdx/paragraph";
 import { Anchor } from "../mdx/anchor";
+import { Code } from "../mdx/code";
 
 type Props = Omit<PageProps, "children"> & {
   children: ReactNode;
@@ -36,6 +37,7 @@ export const GlobalLayout = ({ children }: Props) => {
             blockquote: BlockQuote,
             p: Paragraph,
             a: Anchor,
+            code: Code,
           }}
         >
           {children}

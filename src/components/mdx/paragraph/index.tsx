@@ -1,12 +1,9 @@
 import { Text } from "@radix-ui/themes";
 import clsx from "clsx";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { paragraphCss } from "./index.css";
 
-type Props = Omit<
-  DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>,
-  "ref"
->;
+type Props = ComponentPropsWithoutRef<"p">;
 
 export const Paragraph = ({ className, children }: Props) => {
   return (

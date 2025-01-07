@@ -1,14 +1,8 @@
 import clsx from "clsx";
-import { BlockquoteHTMLAttributes, DetailedHTMLProps } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { anchorCss } from "./index.css";
 
-type Props = Omit<
-  DetailedHTMLProps<
-    BlockquoteHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >,
-  "ref"
->;
+type Props = ComponentPropsWithoutRef<"a">;
 
 export const Anchor = ({ className, ...props }: Props) => {
   return (
