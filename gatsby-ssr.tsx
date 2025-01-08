@@ -7,7 +7,6 @@ import { GlobalLayout } from "./src/components/global-layout";
 
 import { Theme } from "@radix-ui/themes";
 import { ThemeProvider } from "next-themes";
-import "./src/styles/global.css";
 
 // global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapPageElement)
 export const wrapPageElement = ({

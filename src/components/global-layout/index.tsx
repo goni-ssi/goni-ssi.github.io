@@ -3,7 +3,9 @@ import { PageProps } from "gatsby";
 import { ReactNode } from "react";
 import { GlobalFooter } from "../global-footer";
 import { GlobalHeader } from "../global-header";
-import { containerCss, contentCss } from "./index.css";
+import { Anchor } from "../mdx/anchor";
+import { BlockQuote } from "../mdx/block-quote";
+import { Code } from "../mdx/code";
 import {
   Header1,
   Header2,
@@ -12,10 +14,8 @@ import {
   Header5,
   Header6,
 } from "../mdx/headers";
-import { BlockQuote } from "../mdx/block-quote";
 import { Paragraph } from "../mdx/paragraph";
-import { Anchor } from "../mdx/anchor";
-import { Code } from "../mdx/code";
+import { containerCss, contentCss } from "./index.css";
 
 type Props = Omit<PageProps, "children"> & {
   children: ReactNode;
