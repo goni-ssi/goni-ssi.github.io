@@ -1,23 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Theme } from "@radix-ui/themes";
-import { PageProps } from "gatsby";
-import { ThemeProvider } from "next-themes";
-import { ReactNode } from "react";
-import { GlobalLayout } from "./src/components/global-layout";
-import "./src/styles/global.css";
-import "./src/styles/prism-js.css";
-import "prismjs/themes/prism-solarizedlight.css";
-import "prismjs/plugins/line-numbers/prism-line-numbers.css";
-import "prismjs/plugins/command-line/prism-command-line.css";
+import { Theme } from '@radix-ui/themes';
+import { PageProps } from 'gatsby';
+import { ThemeProvider } from 'next-themes';
+import { ReactNode } from 'react';
+import { GlobalLayout } from './src/components/global-layout';
+import './src/styles/global.css';
+import './src/styles/prism-js.css';
+import 'prismjs/themes/prism-solarizedlight.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import 'prismjs/plugins/command-line/prism-command-line.css';
 
 // global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapPageElement)
-export const wrapPageElement = ({
-  element,
-  props,
-}: {
-  element: ReactNode;
-  props: PageProps;
-}) => {
+export const wrapPageElement = ({ element, props }: { element: ReactNode; props: PageProps }) => {
   return (
     <ThemeProvider attribute="class" storageKey="theme">
       <Theme accentColor="indigo" grayColor="gray">
