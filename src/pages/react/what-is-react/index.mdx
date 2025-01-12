@@ -1,7 +1,9 @@
 ---
 title: Test!
-date: "2015-05-06T23:46:37.121Z"
+date: '2015-05-06T23:46:37.121Z'
 ---
+
+import testPng from './test.png';
 
 # Header1
 
@@ -26,20 +28,20 @@ normal text
 
 `backtick` with inline code.
 
-```tsx{numberLines: true}
-const test = "code";
+```tsx
+const test = 'code';
 const func = () => {
-  return null;
+	return null;
 };
 ```
 
 **굵은 글자**
 
-_기울일 글자_
+_강조하는 글자_
 
 ~~취소선~~
 
-==강조할 글자==
+<Kbd>Ctrl</Kbd>
 
 - 리스트 1
   - 리스트 1-1
@@ -51,16 +53,16 @@ _기울일 글자_
 [x] done
 
 1. number1
-1. number1-1
-1. number1-2
-1. number2
-1. number3
+2. number1-1
+3. number1-2
+4. number2
+5. number3
 
 ## split line
 
 ![image1](./test.png)
 ![image2](../../../images/icon.png)
 
-<img src="./test.png" alt="hi" />
+<Image src={testPng} alt="hi" />
 
 ---

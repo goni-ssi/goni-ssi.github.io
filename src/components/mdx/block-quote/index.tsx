@@ -1,12 +1,12 @@
 import { ComponentPropsWithoutRef } from "react";
-import { innerCss } from "./index.css";
+import { blockQuoteCss } from "./index.css";
+import { Blockquote as RadixBlockQuote } from "@radix-ui/themes";
+import clsx from "clsx";
 
-type Props = ComponentPropsWithoutRef<"blockquote">;
+type Props = Omit<ComponentPropsWithoutRef<"blockquote">, "color">;
 
-export const BlockQuote = ({ className, children, ...props }: Props) => {
+export const BlockQuote = ({ className, ...props }: Props) => {
   return (
-    <blockquote className={className} {...props}>
-      <div className={innerCss}>{children}</div>
-    </blockquote>
+    <RadixBlockQuote className={clsx(blockQuoteCss, className)} {...props} />
   );
 };

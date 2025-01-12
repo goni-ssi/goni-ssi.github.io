@@ -1,19 +1,16 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-import { adaptive } from "../../../styles/colors";
-import { paragraphCss } from "../paragraph/index.css";
 import { mdxCss } from "../../../styles/mdx.utils";
+import { paragraphCss } from "../paragraph/index.css";
 
-export const innerCss = style([
+export const blockQuoteCss = style([
   {
-    borderLeft: `3px solid ${adaptive.gray12}`,
-    width: "100%",
-    padding: "0 14px",
     display: "flex",
+    margin: "3px 2px",
   },
-  ...mdxCss(["padding", "whiteSpace", "wordBreak"]),
+  ...mdxCss(["whiteSpace", "wordBreak"]),
 ]);
 
-globalStyle(`${innerCss} > ${paragraphCss}`, {
+globalStyle(`${blockQuoteCss} > ${paragraphCss}`, {
   padding: 0,
   margin: 0,
 });

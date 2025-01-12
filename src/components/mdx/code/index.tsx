@@ -1,22 +1,9 @@
-import clsx from "clsx";
-import { ComponentPropsWithoutRef } from "react";
+import clsx from 'clsx';
+import { ComponentPropsWithoutRef } from 'react';
+import { Code as RadixCode } from '@radix-ui/themes';
 
-type Props = ComponentPropsWithoutRef<"code">;
+type Props = Omit<ComponentPropsWithoutRef<'code'>, 'color'>;
 
-/**
- * - Markdown Syntax
- *
- * Some `backticks` for inline.
- * ```javascript
- * backtick.fences('for blocks')
- * ```
- *
- * - Equivalent JSX
- * <p>
- *   A backslash<br />
- *   before a line break…
- * </p>
- */
-export const Code = ({ className, ...props }: Props) => {
-  return <code className={clsx(className)} {...props} />;
+export const InlineCode = ({ className, ...props }: Props) => {
+	return <RadixCode className={clsx(className)} {...props} />;
 };

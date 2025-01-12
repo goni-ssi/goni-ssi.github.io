@@ -7,7 +7,7 @@ type Props = ComponentPropsWithoutRef<"p">;
 
 export const Paragraph = ({ className, children }: Props) => {
   return (
-    <Text as="p" className={clsx(paragraphCss, className)}>
+    <Text as="span" weight="bold" className={clsx(paragraphCss, className)}>
       {children}
     </Text>
   );
