@@ -1,11 +1,11 @@
-import { style } from "@vanilla-extract/css";
-import { adaptive } from "../../../styles/colors";
+import { style } from '@vanilla-extract/css';
+import { adaptive } from '../../../styles/colors';
 
 export const anchorCss = style({
-  textDecoration: "none",
+  textDecoration: 'none',
   color: adaptive.accent10,
 
-  ":hover": {
-    textDecoration: "underline",
+  ':hover': {
+    textDecoration: 'underline',
   },
 });

@@ -14,39 +14,39 @@ import { containerCss, contentCss } from './index.css';
 import { Em } from '../mdx/em';
 
 type Props = Omit<PageProps, 'children'> & {
-	children: ReactNode;
+  children: ReactNode;
 };
 
 export const GlobalLayout = ({ children }: Props) => {
-	return (
-		<div className={containerCss}>
-			<GlobalHeader />
-			<section className={contentCss}>
-				<MDXProvider
-					components={{
-						h1: Header1,
-						h2: Header2,
-						h3: Header3,
-						h4: Header4,
-						h5: Header5,
-						h6: Header6,
-						blockquote: BlockQuote,
-						p: Paragraph,
-						a: Anchor,
-						code: InlineCode,
-						strong: Strong,
-						Kbd: Kbd,
-						em: Em,
-						Image: (props) => {
-							return <img {...props} />;
-						},
-					}}
-				>
-					{children}
-				</MDXProvider>
-			</section>
+  return (
+    <div className={containerCss}>
+      <GlobalHeader />
+      <section className={contentCss}>
+        <MDXProvider
+          components={{
+            h1: Header1,
+            h2: Header2,
+            h3: Header3,
+            h4: Header4,
+            h5: Header5,
+            h6: Header6,
+            blockquote: BlockQuote,
+            p: Paragraph,
+            a: Anchor,
+            code: InlineCode,
+            strong: Strong,
+            Kbd: Kbd,
+            em: Em,
+            Image: (props) => {
+              return <img {...props} />;
+            },
+          }}
+        >
+          {children}
+        </MDXProvider>
+      </section>
 
-			<GlobalFooter />
-		</div>
-	);
+      <GlobalFooter />
+    </div>
+  );
 };

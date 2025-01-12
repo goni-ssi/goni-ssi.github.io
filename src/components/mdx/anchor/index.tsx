@@ -1,8 +1,8 @@
-import clsx from "clsx";
-import { ComponentPropsWithoutRef } from "react";
-import { anchorCss } from "./index.css";
+import clsx from 'clsx';
+import { ComponentPropsWithoutRef } from 'react';
+import { anchorCss } from './index.css';
 
-type Props = ComponentPropsWithoutRef<"a">;
+type Props = ComponentPropsWithoutRef<'a'>;
 
 export const Anchor = ({ className, ...props }: Props) => {
   return (

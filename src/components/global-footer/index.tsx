@@ -1,5 +1,5 @@
-import { Text } from "@radix-ui/themes";
-import { footerCss, rightTxtCss } from "./index.css";
+import { Text } from '@radix-ui/themes';
+import { footerCss, rightTxtCss } from './index.css';
 
 export const GlobalFooter = () => {
   return (

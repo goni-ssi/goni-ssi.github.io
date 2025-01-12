@@ -9,5 +9,5 @@ type Props = Omit<ComponentPropsWithoutRef<'em'>, 'color'>;
  * `_강조_`
  */
 export const Em = ({ className, ...props }: Props) => {
-	return <RadixEm className={clsx(emCss, className)} {...props} />;
+  return <RadixEm className={clsx(emCss, className)} {...props} />;
 };

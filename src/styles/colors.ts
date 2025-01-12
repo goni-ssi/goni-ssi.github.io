@@ -1,14 +1,14 @@
 const colors = [
-  "gray",
-  "red",
-  "pink",
-  "purple",
-  "blue",
-  "green",
-  "brown",
-  "orange",
-  "yellow",
-  "accent",
+  'gray',
+  'red',
+  'pink',
+  'purple',
+  'blue',
+  'green',
+  'brown',
+  'orange',
+  'yellow',
+  'accent',
 ] as const;
 type Color = (typeof colors)[number];
 
@@ -34,7 +34,7 @@ export const adaptive = colors.reduce(
             [`${color}${scale}`]: `var(--${color}-${scale})`,
           };
         },
-        {} as Record<`${Color}${Scale}`, string>
+        {} as Record<`${Color}${Scale}`, string>,
       ),
     };
 
@@ -43,5 +43,5 @@ export const adaptive = colors.reduce(
       ...colorObj,
     };
   },
-  {} as Record<`${Color}${Scale}`, string>
+  {} as Record<`${Color}${Scale}`, string>,
 );

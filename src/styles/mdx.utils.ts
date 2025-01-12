@@ -1,17 +1,17 @@
-import { marginCss, paddingCss, whiteSpaceCss, wordBreakCss } from "./mdx.css";
+import { marginCss, paddingCss, whiteSpaceCss, wordBreakCss } from './mdx.css';
 
-type MdxCommonStyles = "padding" | "margin" | "whiteSpace" | "wordBreak";
+type MdxCommonStyles = 'padding' | 'margin' | 'whiteSpace' | 'wordBreak';
 
 export const mdxCss = (styles: MdxCommonStyles[]) => {
   return styles.map((style) => {
     switch (style) {
-      case "padding":
+      case 'padding':
         return paddingCss;
-      case "margin":
+      case 'margin':
         return marginCss;
-      case "whiteSpace":
+      case 'whiteSpace':
         return whiteSpaceCss;
-      case "wordBreak":
+      case 'wordBreak':
         return wordBreakCss;
     }
   });

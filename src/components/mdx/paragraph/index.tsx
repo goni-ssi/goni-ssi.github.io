@@ -1,9 +1,9 @@
-import { Text } from "@radix-ui/themes";
-import clsx from "clsx";
-import { ComponentPropsWithoutRef } from "react";
-import { paragraphCss } from "./index.css";
+import { Text } from '@radix-ui/themes';
+import clsx from 'clsx';
+import { ComponentPropsWithoutRef } from 'react';
+import { paragraphCss } from './index.css';
 
-type Props = ComponentPropsWithoutRef<"p">;
+type Props = ComponentPropsWithoutRef<'p'>;
 
 export const Paragraph = ({ className, children }: Props) => {
   return (
