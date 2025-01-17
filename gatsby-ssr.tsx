@@ -7,12 +7,13 @@ import { GlobalLayout } from './src/components/global-layout';
 
 import { Theme } from '@radix-ui/themes';
 import { ThemeProvider } from 'next-themes';
+import { gatsbyRootThemeCss } from './src/components/global-layout/index.css';
 
 // global UI 전용 (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapPageElement)
 export const wrapPageElement = ({ element, props }: { element: ReactNode; props: PageProps }) => {
   return (
     <ThemeProvider attribute="class" storageKey="theme">
-      <Theme accentColor="indigo">
+      <Theme accentColor="indigo" grayColor="gray" className={gatsbyRootThemeCss}>
         <GlobalLayout {...props}>{element}</GlobalLayout>
       </Theme>
     </ThemeProvider>

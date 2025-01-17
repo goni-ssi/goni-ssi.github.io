@@ -1,62 +1,265 @@
-.gatsby-highlight-code-line {
-  background-color: #feb;
-  display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid #f99;
+/* General .prism-code styles */
+.prism-code {
+  font-size: calc(1rem * var(--font-size-scale));
+  -webkit-overflow-scrolling: touch;
+  background-color: transparent;
+  min-width: 100%;
+  overflow: auto;
+  font-family: ml, monospace;
 }
 
-/**
- * Add back the container background-color, border-radius, padding, margin
- * and overflow that we removed from <pre>.
- */
+.prism-code[data-linenumber='false'] .token-line {
+  padding-left: 3rem;
+}
+
+/* Language-specific styles */
+.gatsby-highlight[data-language='none'] .code-content,
+.gatsby-highlight[data-language=''] .code-content {
+  padding-top: 1rem;
+}
+
+.code-content {
+  padding: 2rem 0 1rem;
+  color: var(--gray-1);
+  background-color: rgb(1, 22, 39);
+}
+
+.token {
+  display: inline-block;
+}
+
+p > code,
+li > code {
+  background-color: var(--muted);
+  color: var(--heading);
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
 .gatsby-highlight {
-  background-color: #fdf6e3;
-  border-radius: 0.3em;
-  margin: 0.5em 0;
-  padding: 1em;
+  font-size: calc(1rem * var(--font-size-scale));
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 4px 0;
+}
+
+.gatsby-highlight .token-line {
+  margin: 0 calc(-3 * var(--spacing-unit));
+  min-width: 100%;
+}
+
+.gatsby-highlight pre code {
+  float: left;
+  min-width: 100%;
+}
+
+.gatsby-highlight pre[class*='language-']:before {
+  background-color: white;
+  border-radius: 0 0 4px 4px;
+  color: black;
+  font-size: 12px;
+  letter-spacing: 0.035rem;
+  padding: 0.1rem 0.5rem;
+  position: absolute;
+  left: 1rem;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.gatsby-highlight pre[class~='language-golang']:before,
+.gatsby-highlight pre[class~='language-go']:before {
+  content: 'go';
+  background: #79d4fd;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-javascript']:before,
+.gatsby-highlight pre[class~='language-js']:before {
+  content: 'js';
+  background: #f7df1e;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-jsx']:before {
+  content: 'jsx';
+  background: #61dafb;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-ts']:before {
+  content: 'ts';
+  background: #61dafb;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-tsx']:before {
+  content: 'tsx';
+  background: #61dafb;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-html']:before {
+  content: 'html';
+  background: #005a9c;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-xml']:before {
+  content: 'xml';
+  background: #005a9c;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-svg']:before {
+  content: 'svg';
+  background: #005a9c;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-graphql']:before {
+  content: 'GraphQL';
+  background: #e10098;
+}
+
+.gatsby-highlight pre[class~='language-css']:before {
+  content: 'css';
+  background: #ff9800;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-mdx']:before {
+  content: 'mdx';
+  background: #f9ac00;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-php']:before {
+  content: 'php';
+  background: #777bb3;
+  color: black;
+}
+
+.gatsby-highlight pre[class~='language-py']:before,
+.gatsby-highlight pre[class~='language-python']:before {
+  content: 'py';
+  background: #306998;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-text']:before {
+  content: 'text';
+}
+
+.gatsby-highlight pre[class~='language-shell']:before {
+  content: 'shell';
+}
+
+.gatsby-highlight pre[class~='language-sh']:before {
+  content: 'sh';
+}
+
+.gatsby-highlight pre[class~='language-bash']:before {
+  content: 'bash';
+}
+
+.gatsby-highlight pre[class~='language-yaml']:before {
+  content: 'yaml';
+  background: #ffa8df;
+}
+
+.gatsby-highlight pre[class~='language-yml']:before {
+  content: 'yml';
+  background: #ffa8df;
+}
+
+.gatsby-highlight pre[class~='language-markdown']:before {
+  content: 'md';
+}
+
+.gatsby-highlight pre[class~='language-json']:before,
+.gatsby-highlight pre[class~='language-json5']:before {
+  content: 'json';
+  background: linen;
+}
+
+.gatsby-highlight pre[class~='language-diff']:before {
+  content: 'diff';
+  background: #e6ffed;
+}
+
+.gatsby-highlight > code[class*='language-'],
+.gatsby-highlight > pre[class*='language-'] {
+  word-spacing: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+.gatsby-highlight pre::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.gatsby-highlight pre::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+.gatsby-highlight pre::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+.line-number-style {
+  display: inline-block;
+  width: 3em;
+  user-select: none;
+  opacity: 0.3;
+  text-align: center;
+  position: relative;
+}
+
+.code-title {
+  background-color: var(--muted);
+  color: var(--text);
+  font-size: 1rem;
+  padding: 1rem;
+  font-family: var(--body-font);
+}
+
+.token-line {
+  padding-right: 3rem;
+}
+
+.highlight-line {
+  border-left: 4px solid var(--accent-9);
+}
+
+.highlight-line .line-number-style {
+  width: calc(3em - 4px);
+  opacity: 0.5;
+  left: -2px;
+}
+
+.footnotes {
+  border-top: 1px solid var(--divide);
+  padding-top: 2rem;
+  margin-top: 5rem;
   overflow: auto;
 }
 
-/**
-   * Remove the default PrismJS theme background-color, border-radius, margin,
-   * padding and overflow.
-   * 1. Make the element just wide enough to fit its content.
-   * 2. Always fill the visible space in .gatsby-highlight.
-   * 3. Adjust the position of the line numbers
-   */
-.gatsby-highlight pre[class*='language-'] {
-  background-color: transparent;
-  margin: 0;
+.footnotes .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
   padding: 0;
-  overflow: initial;
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
-}
-
-.gatsby-highlight pre[class*='language-'].line-numbers {
-  padding-left: 2.8em;
-}
-
-.command-line-prompt > span:before {
-  color: #999;
-  content: ' ';
-  display: block;
-  padding-right: 0.8em;
-}
-
-/* Prompt for all users */
-.command-line-prompt > span[data-user]:before {
-  content: '[' attr(data-user) '@' attr(data-host) '] $';
-}
-
-/* Prompt for root */
-.command-line-prompt > span[data-user='root']:before {
-  content: '[' attr(data-user) '@' attr(data-host) '] #';
-}
-
-.command-line-prompt > span[data-prompt]:before {
-  content: attr(data-prompt);
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

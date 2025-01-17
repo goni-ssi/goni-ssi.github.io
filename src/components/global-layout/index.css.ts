@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 export const LAYOUT_PADDING = 20;
 
@@ -18,4 +18,12 @@ export const contentCss = style({
   display: 'flex',
   flexDirection: 'column',
   padding: LAYOUT_PADDING,
+});
+
+export const gatsbyRootThemeCss = style({});
+
+globalStyle(`html.dark ${gatsbyRootThemeCss}`, {
+  vars: {
+    '--color-background': 'rgb(25, 24, 37)',
+  },
 });

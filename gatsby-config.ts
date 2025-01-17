@@ -1,6 +1,7 @@
 import remarkGfm from 'remark-gfm';
 import type { GatsbyConfig } from 'gatsby';
 import 'dotenv/config';
+import rehypeMetaAsAttributes from '@lekoarts/rehype-meta-as-attributes';
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -38,36 +39,36 @@ const config: GatsbyConfig = {
               maxWidth: 800,
             },
           },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: true,
-              languageExtensions: [
-                {
-                  language: 'superscript',
-                  extend: 'javascript',
-                  definition: {
-                    superscript_types: /(SuperType)/,
-                  },
-                  insertBefore: {
-                    function: {
-                      superscript_keywords: /(superif|superelse)/,
-                    },
-                  },
-                },
-              ],
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false,
-              },
-              escapeEntities: {},
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-prismjs`,
+          //   options: {
+          //     classPrefix: 'language-',
+          //     inlineCodeMarker: null,
+          //     aliases: {},
+          //     showLineNumbers: true,
+          //     noInlineHighlight: true,
+          //     languageExtensions: [
+          //       {
+          //         language: 'superscript',
+          //         extend: 'javascript',
+          //         definition: {
+          //           superscript_types: /(SuperType)/,
+          //         },
+          //         insertBefore: {
+          //           function: {
+          //             superscript_keywords: /(superif|superelse)/,
+          //           },
+          //         },
+          //       },
+          //     ],
+          //     prompt: {
+          //       user: 'root',
+          //       host: 'localhost',
+          //       global: false,
+          //     },
+          //     escapeEntities: {},
+          //   },
+          // },
         ],
         mdxOptions: {
           /**
@@ -75,6 +76,7 @@ const config: GatsbyConfig = {
            * @see https://github.com/contentlayerdev/contentlayer/issues/558#issuecomment-1736215198
            */
           remarkPlugins: [remarkGfm],
+          rehypePlugins: [rehypeMetaAsAttributes],
         },
       },
     },

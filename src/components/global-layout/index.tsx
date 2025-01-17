@@ -5,13 +5,15 @@ import { GlobalFooter } from '../global-footer';
 import { GlobalHeader } from '../global-header';
 import { Anchor } from '../mdx/anchor';
 import { BlockQuote } from '../mdx/block-quote';
-import { InlineCode } from '../mdx/code';
+import { InlineCode } from '../mdx/inline-code';
 import { Header1, Header2, Header3, Header4, Header5, Header6 } from '../mdx/headers';
 import { Kbd } from '../mdx/kbd';
 import { Paragraph } from '../mdx/paragraph';
 import { Strong } from '../mdx/strong';
 import { containerCss, contentCss } from './index.css';
 import { Em } from '../mdx/em';
+import { preToCodeBlock } from '@lekoarts/themes-utils';
+import { CodeBlock } from '../mdx/code-block';
 
 type Props = Omit<PageProps, 'children'> & {
   children: ReactNode;
@@ -37,6 +39,17 @@ export const GlobalLayout = ({ children }: Props) => {
             strong: Strong,
             Kbd: Kbd,
             em: Em,
+            pre: (preProps: any) => {
+              const props = preToCodeBlock(preProps);
+              // if there's a codeString and some props, we passed the test
+
+              if (props) {
+                return <CodeBlock {...props} />;
+              }
+
+              // it's possible to have a pre without a code in it
+              return <pre {...preProps} />;
+            },
             Image: (props) => {
               return <img {...props} />;
             },
