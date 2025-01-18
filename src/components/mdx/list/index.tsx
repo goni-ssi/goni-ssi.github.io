@@ -1,15 +1,19 @@
 import clsx from 'clsx';
 import { Children, ComponentProps } from 'react';
 import { Paragraph } from '../paragraph';
-import { listCss } from './index.css';
-import { isObject } from 'es-toolkit/compat';
+import { listCss, todoListCss } from './index.css';
+import { TASK_LIST_ITEM_CLASS_NAME } from '../../../constants/mdx';
 
 type Props = ComponentProps<'li'>;
 
 export const List = ({ className, ...props }: Props) => {
+  if (className?.includes(TASK_LIST_ITEM_CLASS_NAME)) {
+    return <li className={clsx(todoListCss, className)}>{props.children}</li>;
+  }
+
   return Children.map(props.children, (child) => {
     if (typeof child === 'string') {
-      if (child === '\n') {
+      if (child === '\n' || child === ' ') {
         return null;
       }
 
@@ -18,15 +22,6 @@ export const List = ({ className, ...props }: Props) => {
           <Paragraph>{child}</Paragraph>
         </li>
       );
-    }
-
-    if (
-      isObject(child) &&
-      'type' in child &&
-      isObject(child.type) &&
-      child.type.name === 'Paragraph'
-    ) {
-      return <li className={clsx(listCss, className)}>{child}</li>;
     }
 
     return child;

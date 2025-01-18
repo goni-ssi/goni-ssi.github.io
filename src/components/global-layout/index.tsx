@@ -17,6 +17,7 @@ import { CodeBlock } from '../mdx/code-block';
 import { UnorderedList } from '../mdx/unordered-list';
 import { List } from '../mdx/list';
 import { OrderedList } from '../mdx/ordered-list';
+import { Input } from '../mdx/input';
 
 type Props = Omit<PageProps, 'children'> & {
   children: ReactNode;
@@ -45,6 +46,7 @@ export const GlobalLayout = ({ children }: Props) => {
             ul: UnorderedList,
             ol: OrderedList,
             li: List,
+            input: Input,
             pre: (preProps) => {
               const props = preToCodeBlock(preProps as Parameters<typeof preToCodeBlock>[0]);
               // if there's a codeString and some props, we passed the test
