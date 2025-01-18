@@ -18,6 +18,7 @@ import { UnorderedList } from '../mdx/unordered-list';
 import { List } from '../mdx/list';
 import { OrderedList } from '../mdx/ordered-list';
 import { Input } from '../mdx/input';
+import { Hr } from '../mdx/hr';
 
 type Props = Omit<PageProps, 'children'> & {
   children: ReactNode;
@@ -61,6 +62,7 @@ export const GlobalLayout = ({ children }: Props) => {
             Image: (props) => {
               return <img {...props} />;
             },
+            hr: Hr,
           }}
         >
           {children}

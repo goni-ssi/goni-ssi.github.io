@@ -24,6 +24,6 @@ export const gatsbyRootThemeCss = style({});
 
 globalStyle(`html.dark ${gatsbyRootThemeCss}`, {
   vars: {
-    '--color-background': 'rgb(25, 24, 37)',
+    '--color-background': 'rgb(19, 19, 26)',
   },
 });
