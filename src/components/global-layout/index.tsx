@@ -39,8 +39,8 @@ export const GlobalLayout = ({ children }: Props) => {
             strong: Strong,
             Kbd: Kbd,
             em: Em,
-            pre: (preProps: any) => {
-              const props = preToCodeBlock(preProps);
+            pre: (preProps) => {
+              const props = preToCodeBlock(preProps as Parameters<typeof preToCodeBlock>[0]);
               // if there's a codeString and some props, we passed the test
 
               if (props) {

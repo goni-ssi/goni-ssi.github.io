@@ -2,10 +2,8 @@ import { calculateLinesToHighlight, getLanguage, GetLanguageInput } from '@lekoa
 import { Highlight, themes } from 'prism-react-renderer';
 import * as React from 'react';
 
-import { adaptive } from '../../../styles/colors';
 import Copy from './copy';
 import { codeTitleCss } from './index.css';
-import { indigo } from '@radix-ui/colors';
 
 type CodeProps = {
   codeString: string;
