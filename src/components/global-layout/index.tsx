@@ -14,6 +14,9 @@ import { containerCss, contentCss } from './index.css';
 import { Em } from '../mdx/em';
 import { preToCodeBlock } from '@lekoarts/themes-utils';
 import { CodeBlock } from '../mdx/code-block';
+import { UnorderedList } from '../mdx/unordered-list';
+import { List } from '../mdx/list';
+import { OrderedList } from '../mdx/ordered-list';
 
 type Props = Omit<PageProps, 'children'> & {
   children: ReactNode;
@@ -39,6 +42,9 @@ export const GlobalLayout = ({ children }: Props) => {
             strong: Strong,
             Kbd: Kbd,
             em: Em,
+            ul: UnorderedList,
+            ol: OrderedList,
+            li: List,
             pre: (preProps) => {
               const props = preToCodeBlock(preProps as Parameters<typeof preToCodeBlock>[0]);
               // if there's a codeString and some props, we passed the test
