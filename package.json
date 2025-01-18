@@ -26,6 +26,7 @@
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/webpack-plugin": "^2.3.1",
     "clsx": "^2.1.1",
+    "es-toolkit": "^1.31.0",
     "gatsby": "^5.13.1",
     "gatsby-plugin-google-gtag": "^5.13.0",
     "gatsby-plugin-image": "^3.13.0",
