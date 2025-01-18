@@ -1,9 +1,9 @@
+import { gray } from '@radix-ui/colors';
 import { globalStyle, style } from '@vanilla-extract/css';
-import { adaptive } from '../../../../styles/colors';
 
 export const buttonCss = style({
-  backgroundColor: adaptive.gray11,
-  color: adaptive.gray2,
+  backgroundColor: gray.gray10,
+  color: gray.gray12,
   border: `none`,
   cursor: `pointer`,
   fontSize: '14px',
@@ -22,6 +22,6 @@ export const buttonCss = style({
 });
 
 globalStyle(`${buttonCss}:not([disabled]):hover`, {
-  backgroundColor: adaptive.accent10,
-  color: adaptive.gray2,
+  backgroundColor: gray.gray8,
+  color: gray.gray12,
 });

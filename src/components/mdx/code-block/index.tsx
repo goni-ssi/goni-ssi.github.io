@@ -46,7 +46,7 @@ export const CodeBlock = ({
                     lineProps.className = `${lineProps.className} highlight-line`;
                     lineProps.style = {
                       ...lineProps.style,
-                      backgroundColor: 'rgba(215, 215, 255, 0.12)',
+                      backgroundColor: 'rgba(184, 184, 214, 0.12)',
                     };
                   }
 
