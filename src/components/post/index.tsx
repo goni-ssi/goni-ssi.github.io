@@ -1,5 +1,4 @@
 import { Link, PageProps } from 'gatsby';
-import { getPostPath } from '../../utils/get-post-path';
 import { ReactNode } from 'react';
 import {
   postItemContainerCss,
@@ -24,13 +23,13 @@ interface ItemProps {
 }
 
 export const Item = ({ node }: ItemProps) => {
-  const { frontmatter, internal } = node;
+  const { frontmatter, fields } = node;
   const { title, description, date } = frontmatter ?? {};
-  const { contentFilePath } = internal;
+  const { slug } = fields;
 
   return (
     <li className={postItemContainerCss}>
-      <Link to={getPostPath(contentFilePath)} className={postItemLinkCss}>
+      <Link to={slug} className={postItemLinkCss}>
         <Heading size="6" weight="bold" className={postItemTitleCss}>
           {title ?? 'No Title'}
         </Heading>

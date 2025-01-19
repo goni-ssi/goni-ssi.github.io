@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import { PageProps, graphql } from 'gatsby';
-import { MdxComponents } from '../../mdx';
+import { MdxComponents } from '../../components/mdx';
+import { SEO } from '../../components/seo';
 
 const BlogPost = ({ data, children }: PageProps<Queries.BlogPostTemplateQuery>) => {
   const { mdx } = data;
@@ -20,9 +21,13 @@ const BlogPost = ({ data, children }: PageProps<Queries.BlogPostTemplateQuery>) 
   );
 };
 
+export const Head = ({ data }: PageProps<Queries.BlogPostTemplateQuery>) => {
+  return <SEO title={data.mdx?.frontmatter?.title ?? 'Post'} />;
+};
+
 export default BlogPost;
 
-export const query = graphql`
+export const pageQuery = graphql`
   query BlogPostTemplate($id: String!) {
     mdx(id: { eq: $id }) {
       frontmatter {

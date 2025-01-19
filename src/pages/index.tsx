@@ -20,7 +20,7 @@ export const Head = () => {
   return <SEO title="홈" />;
 };
 
-export const query = graphql`
+export const pageQuery = graphql`
   query IndexPage {
     site {
       siteMetadata {
@@ -30,13 +30,13 @@ export const query = graphql`
     allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         id
+        fields {
+          slug
+        }
         frontmatter {
           title
           date(formatString: "YYYY-MM-DD")
           description
-        }
-        internal {
-          contentFilePath
         }
       }
     }
