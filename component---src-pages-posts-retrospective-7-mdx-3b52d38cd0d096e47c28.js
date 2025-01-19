@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoni_log=self.webpackChunkgoni_log||[]).push([[995],{8039:function(n,s,e){e.r(s);var c=e(1527),t=e(5463);function o(n){const s=Object.assign({h1:"h1"},(0,t.a)(),n.components);return(0,c.jsx)(s.h1,{children:"1111"})}s.default=function(n){void 0===n&&(n={});const{wrapper:s}=Object.assign({},(0,t.a)(),n.components);return s?(0,c.jsx)(s,Object.assign({},n,{children:(0,c.jsx)(o,n)})):o(n)}}}]);
-//# sourceMappingURL=component---src-pages-posts-retrospective-7-mdx-3b52d38cd0d096e47c28.js.map
