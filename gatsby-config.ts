@@ -106,6 +106,7 @@ const config: GatsbyConfig = {
     },
     'gatsby-plugin-pnpm',
   ],
+  trailingSlash: 'never',
 };
 
 export default config;
