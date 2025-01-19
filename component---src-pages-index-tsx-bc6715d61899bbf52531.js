@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoni_log=self.webpackChunkgoni_log||[]).push([[691],{6273:function(e,n,t){t.r(n),t.d(n,{Head:function(){return l}});var a=t(1527);n.default=e=>{let{data:n,location:t}=e;return(0,a.jsx)("div",{className:"head"})};const l=()=>(0,a.jsx)("title",{children:"Home Page"})}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-bc6715d61899bbf52531.js.map
