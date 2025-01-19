@@ -25,11 +25,11 @@ interface ItemProps {
 export const Item = ({ node }: ItemProps) => {
   const { frontmatter, fields } = node;
   const { title, description, date } = frontmatter ?? {};
-  const { slug } = fields;
+  const { slug } = fields ?? {};
 
   return (
     <li className={postItemContainerCss}>
-      <Link to={slug} className={postItemLinkCss}>
+      <Link to={slug ?? '/'} className={postItemLinkCss}>
         <Heading size="6" weight="bold" className={postItemTitleCss}>
           {title ?? 'No Title'}
         </Heading>

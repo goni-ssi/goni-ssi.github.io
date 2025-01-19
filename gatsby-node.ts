@@ -72,33 +72,3 @@ exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
     });
   }
 };
-
-exports.createSchemaCustomization = ({ actions }: CreateSchemaCustomizationArgs) => {
-  const { createTypes } = actions;
-
-  // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
-
-  // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
-  createTypes(`
-    type SiteSiteMetadata {
-      siteUrl: String
-    }
-
-    type Mdx implements Node {
-      frontmatter: Frontmatter
-      fields: Fields!
-    }
-
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-    }
-
-    type Fields {
-      slug: String!
-    }
-  `);
-};
