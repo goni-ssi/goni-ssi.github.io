@@ -1,5 +1,6 @@
 import path from 'path';
 import './src/gatsby-types.d.ts';
+import { getPostPath } from './src/utils/get-post-path.ts';
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -24,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   if (result.errors) {
-    throw new Error('Failed to fetch MDX data');
+    throw new Error('Failed to fetch MDX data', result.errors);
   }
 
   const posts = result.data.allMdx.edges;
@@ -39,16 +40,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-};
-
-const getPostPath = (filePath: string | null) => {
-  if (filePath == null) {
-    return '';
-  }
-
-  const postRootPath = '/src/pages/posts/';
-  const [_, postPath] = filePath.split(postRootPath);
-  const withoutMdx = postPath.replace(/\/index\.mdx$/, '');
-
-  return `/posts/${withoutMdx}`;
 };

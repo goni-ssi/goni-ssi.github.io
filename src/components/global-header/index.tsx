@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import { useTheme } from '../../hooks/use-theme';
 import Moon from '../../images/themes/moon.svg';
 import Sun from '../../images/themes/sun.svg';
@@ -8,9 +9,9 @@ export const GlobalHeader = () => {
 
   return (
     <header className={headerCss}>
-      <a className={homeLinkCss} href="/">
+      <Link className={homeLinkCss} to="/">
         Goni Log
-      </a>
+      </Link>
 
       <button
         className={themeButtonCss}

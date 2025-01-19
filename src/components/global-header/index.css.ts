@@ -18,6 +18,7 @@ export const homeLinkCss = style({
   fontSize: 32,
   fontWeight: 700,
   cursor: 'pointer',
+  textDecoration: 'none',
 });
 
 export const themeButtonCss = style({

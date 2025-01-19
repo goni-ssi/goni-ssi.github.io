@@ -6,7 +6,9 @@ import rehypeMetaAsAttributes from '@lekoarts/rehype-meta-as-attributes';
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Goni Log`,
+    description: `곤이의 개발 블로그입니다.`,
     siteUrl: `https://yungo1846.github.io/`,
+    image: 'src/images/icon.png',
   },
   graphqlTypegen: true,
   jsxRuntime: 'automatic',

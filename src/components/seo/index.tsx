@@ -13,7 +13,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const Seo = ({ description, title, children }: Props) => {
+export const SEO = ({ description, title, children }: Props) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
