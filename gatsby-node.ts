@@ -1,11 +1,26 @@
 import path from 'path';
-import './src/gatsby-types.d.ts';
+
 import { getPostPath } from './src/utils/get-post-path.ts';
+
+type GetAllMdxNodesQuery = {
+  readonly allMdx: {
+    readonly edges: ReadonlyArray<{
+      readonly node: {
+        readonly id: string;
+        readonly frontmatter: {
+          readonly title: string | null;
+          readonly date: string | null;
+        } | null;
+        readonly internal: { readonly contentFilePath: string | null };
+      };
+    }>;
+  };
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const result: { data: Queries.GetAllMdxNodesQuery; errors?: unknown } = await graphql(`
+  const result: { data: GetAllMdxNodesQuery; errors?: unknown } = await graphql(`
     query GetAllMdxNodes {
       allMdx(sort: { frontmatter: { date: DESC } }) {
         edges {
