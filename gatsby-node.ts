@@ -1,6 +1,7 @@
 import path from 'path';
 
 import { getPostPath } from './src/utils/get-post-path.ts';
+import { CreatePagesArgs } from 'gatsby';
 
 type GetAllMdxNodesQuery = {
   readonly allMdx: {
@@ -17,10 +18,10 @@ type GetAllMdxNodesQuery = {
   };
 };
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage } = actions;
 
-  const result: { data: GetAllMdxNodesQuery; errors?: unknown } = await graphql(`
+  const result = (await graphql(`
     query GetAllMdxNodes {
       allMdx(sort: { frontmatter: { date: DESC } }) {
         edges {
@@ -37,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)) as { data: GetAllMdxNodesQuery; errors?: unknown };
 
   if (result.errors) {
     throw new Error('Failed to fetch MDX data', result.errors);
