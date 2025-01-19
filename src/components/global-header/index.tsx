@@ -8,7 +8,9 @@ export const GlobalHeader = () => {
 
   return (
     <header className={headerCss}>
-      <a className={homeLinkCss}>Goni Log</a>
+      <a className={homeLinkCss} href="/">
+        Goni Log
+      </a>
 
       <button
         className={themeButtonCss}
