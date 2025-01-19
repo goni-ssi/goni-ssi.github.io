@@ -1,9 +1,9 @@
-import globals from "globals";
-import pluginEslint from "@eslint/js";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import prettierConfig from "eslint-config-prettier";
+import globals from 'globals';
+import pluginEslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import prettierConfig from 'eslint-config-prettier';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(
@@ -13,19 +13,35 @@ export default tseslint.config(
   pluginReact.configs.flat.recommended,
   {
     plugins: {
-      "react-hooks": pluginReactHooks,
+      'react-hooks': pluginReactHooks,
     },
     rules: {
-      "react/react-in-jsx-scope": "off",
+      'react/react-in-jsx-scope': 'off',
 
       ...pluginReactHooks.configs.recommended.rules,
-      "react-hooks/exhaustive-deps": [
-        "warn",
+      'react-hooks/exhaustive-deps': [
+        'warn',
         {
           enableDangerousAutofixThisMayCauseInfiniteLoops: true,
         },
       ],
     },
   },
-  prettierConfig
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
+    },
+  },
+  prettierConfig,
 );

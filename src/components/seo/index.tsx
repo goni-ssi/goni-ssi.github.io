@@ -20,7 +20,6 @@ export const Seo = ({ description, title, children }: Props) => {
         siteMetadata {
           title
           description
-          author
         }
       }
     }

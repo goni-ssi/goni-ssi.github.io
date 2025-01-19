@@ -1,7 +1,7 @@
 import { PageProps, graphql } from 'gatsby';
 
 const IndexPage = ({ data, location }: PageProps<Queries.IndexPageQuery>) => {
-  return <div className="head"></div>;
+  return <div className="head">home</div>;
 };
 
 export default IndexPage;
