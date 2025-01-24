@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { CreateNodeArgs, CreatePagesArgs, CreateSchemaCustomizationArgs } from 'gatsby';
+import { CreateNodeArgs, CreatePagesArgs } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 
 type GetAllMdxNodesQuery = {
