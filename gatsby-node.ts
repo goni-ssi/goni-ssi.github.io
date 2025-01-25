@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   `)) as { data: GetAllMdxNodesQuery; errors?: unknown };
 
   if (result.errors) {
-    throw new Error('Failed to fetch MDX data', result.errors);
+    console.error(result.errors);
   }
 
   const posts = result.data.allMdx.edges;
