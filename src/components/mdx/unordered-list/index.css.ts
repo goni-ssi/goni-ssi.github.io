@@ -8,6 +8,7 @@ export const unorderedListCss = style({
   vars: {
     [listStyleVar]: 'disc',
   },
+  marginBottom: '12px',
 });
 
 globalStyle(`${unorderedListCss}.${CONTAIN_TASK_LIST_CLASS_NAME}`, {

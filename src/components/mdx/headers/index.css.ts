@@ -8,8 +8,8 @@ const headerBaseCss = style({
 
 export const h1Css = style([
   {
-    marginTop: '32px',
-    marginBottom: '4px',
+    marginTop: '40px',
+    marginBottom: '16px',
   },
   headerBaseCss,
   ...mdxCss(['padding', 'whiteSpace', 'wordBreak']),
@@ -17,8 +17,8 @@ export const h1Css = style([
 
 export const h2Css = style([
   {
-    marginTop: '22px',
-    marginBottom: '1px',
+    marginTop: '40px',
+    marginBottom: '12px',
   },
   headerBaseCss,
   ...mdxCss(['padding', 'whiteSpace', 'wordBreak']),
@@ -26,8 +26,8 @@ export const h2Css = style([
 
 export const h3Css = style([
   {
-    marginTop: '16px',
-    marginBottom: '1px',
+    marginTop: '24px',
+    marginBottom: '8px',
   },
   headerBaseCss,
   ...mdxCss(['padding', 'whiteSpace', 'wordBreak']),
