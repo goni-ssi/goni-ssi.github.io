@@ -1,11 +1,34 @@
 import { MDXProvider } from '@mdx-js/react';
-import { PageProps, graphql } from 'gatsby';
+import { Link, PageProps, graphql } from 'gatsby';
 import { MdxComponents } from '../../components/mdx';
 import { SEO } from '../../components/seo';
-import { Heading, Text } from '@radix-ui/themes';
-import { dateCss, headerWrapperCss } from './index.css';
+import { Button, Heading, Text } from '@radix-ui/themes';
+import {
+  dateCss,
+  headerWrapperCss,
+  linkCss,
+  nextPostButtonCss,
+  postNavigationWrapperCss,
+  prevPostButtonCss,
+} from './index.css';
 
-const BlogPost = ({ data, children }: PageProps<Queries.BlogPostTemplateQuery>) => {
+type Post = {
+  id: string;
+  title: string;
+  slug: string;
+};
+
+type PageContext = {
+  id: string;
+  prevPost: Post | null;
+  nextPost: Post | null;
+};
+
+const BlogPost = ({
+  data,
+  pageContext,
+  children,
+}: PageProps<Queries.BlogPostTemplateQuery, PageContext>) => {
   const { mdx } = data;
 
   if (mdx == null) {
@@ -29,6 +52,29 @@ const BlogPost = ({ data, children }: PageProps<Queries.BlogPostTemplateQuery>) 
         )}
       </div>
       <MDXProvider components={MdxComponents}>{children}</MDXProvider>
+
+      <div className={postNavigationWrapperCss}>
+        {pageContext.prevPost ? (
+          <Button className={prevPostButtonCss}>
+            <Link
+              className={linkCss}
+              to={pageContext.prevPost.slug}
+            >{`< ${pageContext.prevPost.title}`}</Link>
+          </Button>
+        ) : (
+          <div />
+        )}
+        {pageContext.nextPost ? (
+          <Button className={nextPostButtonCss}>
+            <Link
+              className={linkCss}
+              to={pageContext.nextPost.slug}
+            >{`${pageContext.nextPost.title} >`}</Link>
+          </Button>
+        ) : (
+          <div />
+        )}
+      </div>
     </>
   );
 };

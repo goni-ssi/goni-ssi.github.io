@@ -20,7 +20,9 @@ export const contentCss = style({
   padding: LAYOUT_PADDING,
 });
 
-export const gatsbyRootThemeCss = style({});
+export const gatsbyRootThemeCss = style({
+  transition: 'background-color 0.2s ease-in-out',
+});
 
 globalStyle(`html.dark ${gatsbyRootThemeCss}`, {
   vars: {
