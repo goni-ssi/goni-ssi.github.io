@@ -5,6 +5,7 @@ export const postListContainerCss = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '2.5rem',
+  marginTop: '2rem',
 });
 
 export const postItemContainerCss = style({
