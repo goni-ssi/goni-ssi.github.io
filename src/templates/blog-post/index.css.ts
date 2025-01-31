@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { adaptive } from '../../styles/colors';
 
 export const headerWrapperCss = style({
@@ -24,10 +24,15 @@ export const prevPostButtonCss = style({
   textDecoration: 'none',
   backgroundColor: adaptive.accent4,
   transition: 'background-color 0.2s ease-in-out',
+  paddingLeft: '8px',
 
   ':hover': {
     backgroundColor: adaptive.accent5,
   },
+});
+
+globalStyle(`${prevPostButtonCss} svg`, {
+  transform: 'rotate(90deg) translateX(1px)',
 });
 
 export const nextPostButtonCss = style({
@@ -35,13 +40,24 @@ export const nextPostButtonCss = style({
   textDecoration: 'none',
   backgroundColor: adaptive.accent4,
   transition: 'background-color 0.2s ease-in-out',
+  paddingRight: '8px',
 
   ':hover': {
     backgroundColor: adaptive.accent5,
   },
 });
 
+globalStyle(`${nextPostButtonCss} svg`, {
+  transform: 'rotate(-90deg) translateX(-1px)',
+});
+
 export const linkCss = style({
   textDecoration: 'none',
   color: adaptive.accent11,
+  display: 'flex',
+  alignItems: 'center',
+});
+
+globalStyle(`${linkCss} svg > path `, {
+  fill: adaptive.accent11,
 });

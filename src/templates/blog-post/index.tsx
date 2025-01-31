@@ -11,6 +11,7 @@ import {
   postNavigationWrapperCss,
   prevPostButtonCss,
 } from './index.css';
+import DirectionIcon from '../../images/icons/direction.svg';
 
 type Post = {
   id: string;
@@ -56,20 +57,20 @@ const BlogPost = ({
       <div className={postNavigationWrapperCss}>
         {pageContext.prevPost ? (
           <Button className={prevPostButtonCss}>
-            <Link
-              className={linkCss}
-              to={pageContext.prevPost.slug}
-            >{`< ${pageContext.prevPost.title}`}</Link>
+            <Link className={linkCss} to={pageContext.prevPost.slug}>
+              <DirectionIcon width={18} height={18} />
+              <span>{pageContext.prevPost.title}</span>
+            </Link>
           </Button>
         ) : (
           <div />
         )}
         {pageContext.nextPost ? (
           <Button className={nextPostButtonCss}>
-            <Link
-              className={linkCss}
-              to={pageContext.nextPost.slug}
-            >{`${pageContext.nextPost.title} >`}</Link>
+            <Link className={linkCss} to={pageContext.nextPost.slug}>
+              {pageContext.nextPost.title}
+              <DirectionIcon width={18} height={18} />
+            </Link>
           </Button>
         ) : (
           <div />
