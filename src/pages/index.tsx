@@ -22,11 +22,6 @@ export const Head = () => {
 
 export const pageQuery = graphql`
   query IndexPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         id

@@ -12,7 +12,7 @@ export const topWrapperCss = style({
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  marginTop: 12,
+  marginTop: '1.5rem',
 });
 
 export const homeLinkCss = style({
@@ -65,7 +65,7 @@ export const bottomWrapperCss = style({
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  marginTop: 12,
+  marginTop: '1rem',
   marginBottom: 10,
   paddingLeft: 4,
   gap: 16,

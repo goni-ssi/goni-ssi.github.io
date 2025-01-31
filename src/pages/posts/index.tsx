@@ -2,7 +2,7 @@ import { PageProps, graphql } from 'gatsby';
 import { Post } from '../../components/post';
 import { SEO } from '../../components/seo';
 
-const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
+const PostsPage = ({ data }: PageProps<Queries.PostsPageQuery>) => {
   return (
     <div>
       <Post.List>
@@ -14,19 +14,14 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   );
 };
 
-export default IndexPage;
+export default PostsPage;
 
 export const Head = () => {
   return <SEO title="Posts" />;
 };
 
 export const pageQuery = graphql`
-  query IndexPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query PostsPage {
     allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         id
