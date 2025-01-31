@@ -12,6 +12,7 @@ type MdxNode = {
     title: string;
     date: string;
     description: string | null;
+    tags: string[] | null;
   };
   internal: {
     contentFilePath: string | null;
@@ -116,9 +117,10 @@ exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
 exports.sourceNodes = async ({ getNodes, actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
   const categoryMap = new Map<string, MdxNode[]>();
+  const tagMap = new Map<string, MdxNode[]>();
 
   // 모든 MDX 노드를 순회하면서 카테고리별로 분류
-  const mdxNodes = getNodes().filter((node) => node.internal.type === 'Mdx');
+  const mdxNodes: MdxNode[] = getNodes().filter((node) => node.internal.type === 'Mdx');
   mdxNodes.forEach((node) => {
     const slug = node.fields?.slug as string;
     if (!slug) return;
@@ -134,6 +136,21 @@ exports.sourceNodes = async ({ getNodes, actions, createNodeId, createContentDig
         categoryNodes.push(node);
       }
     }
+  });
+
+  // 모든 MDX 노드를 순회하면서 태그별로 분류
+  mdxNodes.forEach((node) => {
+    const tags = node.frontmatter.tags;
+
+    tags?.forEach((tag) => {
+      const tagNodes = tagMap.get(tag);
+
+      if (tagNodes == null) {
+        tagMap.set(tag, [node]);
+      } else {
+        tagNodes.push(node);
+      }
+    });
   });
 
   // 각 카테고리별로 노드 생성
@@ -157,6 +174,27 @@ exports.sourceNodes = async ({ getNodes, actions, createNodeId, createContentDig
       },
     });
   });
+
+  tagMap.forEach((nodes, tag) => {
+    const sortedNodes = [...nodes].sort((a, b) => {
+      const dateA = new Date(a.frontmatter.date);
+      const dateB = new Date(b.frontmatter.date);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    createNode({
+      id: createNodeId(`tag-${tag}`),
+      name: tag,
+      posts: sortedNodes.map((node) => node.id),
+      internal: {
+        type: `Tag`,
+        contentDigest: createContentDigest({
+          tag,
+          posts: sortedNodes.map((node) => node.id),
+        }),
+      },
+    });
+  });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -164,6 +202,12 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   createTypes(`
     type Category implements Node {
+      id: ID!
+      name: String!
+      posts: [Mdx!]! @link(by: "id")
+    }
+
+    type Tag implements Node {
       id: ID!
       name: String!
       posts: [Mdx!]! @link(by: "id")

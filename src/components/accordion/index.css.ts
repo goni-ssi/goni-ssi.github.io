@@ -12,10 +12,18 @@ export const buttonCss = style({
   justifyContent: 'space-between',
   cursor: 'pointer',
   width: '100%',
+  gap: '8px',
+  wordBreak: 'keep-all',
+});
+
+export const buttonContentCss = style({
+  flex: 1,
+  minWidth: 0,
 });
 
 export const menuItemWrapperCss = style({
   margin: '0.5rem 1rem',
+  minWidth: '24px',
 });
 
 export const buttonIconCss = style({

@@ -1,6 +1,7 @@
 import { Text } from '@radix-ui/themes';
 import { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
 import {
+  buttonContentCss,
   buttonCss,
   buttonIconCss,
   menuCss,
@@ -35,7 +36,9 @@ const AccordionMenu = ({ className, title, children }: AccordionMenuProps) => {
   return (
     <div className={clsx(menuCss, className)}>
       <button className={buttonCss} onClick={() => setIsOpen((prev) => !prev)}>
-        {typeof title === 'string' ? <AccordionMenuText>{title}</AccordionMenuText> : title}
+        <div className={buttonContentCss}>
+          {typeof title === 'string' ? <AccordionMenuText>{title}</AccordionMenuText> : title}
+        </div>
         <DirectionIcon
           className={clsx(buttonIconCss, { [selectedButtonIconCss]: isOpen })}
           width={24}
