@@ -8,7 +8,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Goni Log`,
     description: `곤이의 개발 블로그입니다.`,
-    siteUrl: `https://yungo1846.github.io/`,
+    siteUrl: `https://goni-ssi.github.io/`,
     image: 'src/images/icon.png',
   },
   graphqlTypegen: true,
