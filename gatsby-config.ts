@@ -87,6 +87,13 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/images/`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-page-creator',
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: ['**/*.css.(ts|tsx)'],
+      },
+    },
     'gatsby-plugin-pnpm',
   ],
   trailingSlash: 'never',
