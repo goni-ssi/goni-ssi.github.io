@@ -204,6 +204,26 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   createTypes(`
+    # Frontmatter 타입 정의
+    type MdxFrontmatter {
+      title: String!
+      date: Date! @dateformat
+      description: String
+      tags: [String!]
+    }
+
+    # Fields 타입 정의
+    type MdxFields {
+      slug: String!
+      readingTime: String
+    }
+    
+    # Mdx 타입 확장
+    type Mdx implements Node {
+      frontmatter: MdxFrontmatter!
+      fields: MdxFields!
+    }
+
     type Category implements Node {
       id: ID!
       name: String!

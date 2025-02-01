@@ -58,10 +58,6 @@ const BlogPost = ({
         )}
         <div className={badgeWrapperCss}>
           {mdx.frontmatter?.tags?.map((tag) => {
-            if (tag == null) {
-              return null;
-            }
-
             return (
               <Link key={tag} to={`/tags?tag=${kebabCase(tag)}`}>
                 <Badge className={badgeCss}>{upperFirst(tag)}</Badge>

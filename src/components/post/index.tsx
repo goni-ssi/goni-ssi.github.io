@@ -26,7 +26,7 @@ export const Item = ({ node }: ItemProps) => {
   const { frontmatter, fields } = node;
   const { title, description, date } = frontmatter ?? {};
   const { slug } = fields ?? {};
-
+  const hasReadingTime = node.fields?.readingTime != null;
   return (
     <li className={postItemContainerCss}>
       <Link to={slug ?? '/'} className={postItemLinkCss}>
@@ -40,7 +40,8 @@ export const Item = ({ node }: ItemProps) => {
         )}
         {date == null ? null : (
           <Text size="1" as="div" className={postItemDateCss}>
-            {date}
+            <time>{date}</time>
+            {hasReadingTime ? <span> &mdash; {node.fields?.readingTime}</span> : null}
           </Text>
         )}
       </Link>
