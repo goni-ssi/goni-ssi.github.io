@@ -1,5 +1,5 @@
 import { Text } from '@radix-ui/themes';
-import { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
+import { ComponentPropsWithoutRef, forwardRef, ReactNode, useEffect, useState } from 'react';
 import {
   buttonContentCss,
   buttonCss,
@@ -28,27 +28,40 @@ interface AccordionMenuProps {
   className?: string;
   children: ReactNode;
   title: ReactNode;
+  open?: boolean;
 }
 
-const AccordionMenu = ({ className, title, children }: AccordionMenuProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+const AccordionMenu = forwardRef<HTMLDivElement, AccordionMenuProps>(
+  ({ className, title, children, open }, ref) => {
+    const [isOpen, setIsOpen] = useState(open ?? false);
 
-  return (
-    <div className={clsx(menuCss, className)}>
-      <button className={buttonCss} onClick={() => setIsOpen((prev) => !prev)}>
-        <div className={buttonContentCss}>
-          {typeof title === 'string' ? <AccordionMenuText>{title}</AccordionMenuText> : title}
-        </div>
-        <DirectionIcon
-          className={clsx(buttonIconCss, { [selectedButtonIconCss]: isOpen })}
-          width={24}
-          height={24}
-        />
-      </button>
-      {isOpen ? <div className={menuItemWrapperCss}>{children}</div> : null}
-    </div>
-  );
-};
+    useEffect(() => {
+      if (open == null) {
+        return;
+      }
+
+      setIsOpen(open);
+    }, [open]);
+
+    return (
+      <div ref={ref} className={clsx(menuCss, className)}>
+        <button className={buttonCss} onClick={() => setIsOpen((prev) => !prev)}>
+          <div className={buttonContentCss}>
+            {typeof title === 'string' ? <AccordionMenuText>{title}</AccordionMenuText> : title}
+          </div>
+          <DirectionIcon
+            className={clsx(buttonIconCss, { [selectedButtonIconCss]: isOpen })}
+            width={24}
+            height={24}
+          />
+        </button>
+        {isOpen ? <div className={menuItemWrapperCss}>{children}</div> : null}
+      </div>
+    );
+  },
+);
+
+AccordionMenu.displayName = 'AccordionMenu';
 
 interface AccordionMenuItemProps {
   className?: string;

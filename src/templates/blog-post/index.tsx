@@ -2,8 +2,10 @@ import { MDXProvider } from '@mdx-js/react';
 import { Link, PageProps, graphql } from 'gatsby';
 import { MdxComponents } from '../../components/mdx';
 import { SEO } from '../../components/seo';
-import { Button, Heading, Text } from '@radix-ui/themes';
+import { Badge, Button, Heading, Text } from '@radix-ui/themes';
 import {
+  badgeCss,
+  badgeWrapperCss,
   dateCss,
   headerWrapperCss,
   linkCss,
@@ -12,6 +14,7 @@ import {
   prevPostButtonCss,
 } from './index.css';
 import DirectionIcon from '../../images/icons/direction.svg';
+import { kebabCase, upperFirst } from 'es-toolkit/string';
 
 type Post = {
   id: string;
@@ -37,6 +40,7 @@ const BlogPost = ({
   }
 
   const { frontmatter } = mdx;
+  const hasReadingTime = mdx.fields?.readingTime != null;
 
   return (
     <>
@@ -48,9 +52,23 @@ const BlogPost = ({
         )}
         {frontmatter?.date == null ? null : (
           <Text as="p" size="2" className={dateCss}>
-            {frontmatter?.date}
+            <time>{frontmatter?.date}</time>
+            {hasReadingTime ? <span> &mdash; {mdx.fields?.readingTime}</span> : null}
           </Text>
         )}
+        <div className={badgeWrapperCss}>
+          {mdx.frontmatter?.tags?.map((tag) => {
+            if (tag == null) {
+              return null;
+            }
+
+            return (
+              <Link key={tag} to={`/tags?tag=${kebabCase(tag)}`}>
+                <Badge className={badgeCss}>{upperFirst(tag)}</Badge>
+              </Link>
+            );
+          })}
+        </div>
       </div>
       <MDXProvider components={MdxComponents}>{children}</MDXProvider>
 
@@ -92,6 +110,10 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
+      }
+      fields {
+        readingTime
       }
       body
     }

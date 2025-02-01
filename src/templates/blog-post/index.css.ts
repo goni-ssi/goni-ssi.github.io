@@ -61,3 +61,13 @@ export const linkCss = style({
 globalStyle(`${linkCss} svg > path `, {
   fill: adaptive.accent11,
 });
+
+export const badgeWrapperCss = style({
+  display: 'flex',
+  gap: '4px',
+  marginTop: '8px',
+});
+
+export const badgeCss = style({
+  cursor: 'pointer',
+});

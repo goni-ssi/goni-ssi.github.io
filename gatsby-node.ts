@@ -2,9 +2,8 @@ import path from 'path';
 
 import { CreateNodeArgs, CreatePagesArgs, Node } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
-
-type MdxNode = {
-  id: string;
+import readingTime from 'reading-time';
+type MdxNode = Node & {
   fields: {
     slug: string;
   };
@@ -14,9 +13,7 @@ type MdxNode = {
     description: string | null;
     tags: string[] | null;
   };
-  internal: {
-    contentFilePath: string | null;
-  };
+  body: string | null;
 };
 
 type GetAllMdxNodesQuery = {
@@ -90,7 +87,7 @@ exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
   const { createNodeField } = actions;
   const categoryMap = new Map<string, Node[]>();
 
-  if (node.internal.type === `Mdx`) {
+  if (checkIsMdxNode(node)) {
     const filePath = createFilePath({ node, getNode });
     const sideSlashRemoved = filePath.replace(/^\/|\/$/g, '');
     const category = sideSlashRemoved.split('/')[0];
@@ -110,6 +107,12 @@ exports.onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
       name: `slug`,
       node,
       value,
+    });
+
+    createNodeField({
+      name: `readingTime`,
+      node,
+      value: node?.body == null ? null : readingTime(node.body).text,
     });
   }
 };
@@ -213,4 +216,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       posts: [Mdx!]! @link(by: "id")
     }
   `);
+};
+
+const checkIsMdxNode = (node: Node): node is MdxNode => {
+  return node.internal.type === 'Mdx';
 };
