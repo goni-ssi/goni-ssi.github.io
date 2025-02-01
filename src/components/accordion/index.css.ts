@@ -1,4 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
+import { adaptive } from '../../styles/colors';
 
 export const menuCss = style({});
 
@@ -32,4 +33,8 @@ export const buttonIconCss = style({
 
 export const selectedButtonIconCss = style({
   transform: 'rotate(180deg)',
+});
+
+globalStyle(`${buttonIconCss} > path `, {
+  fill: adaptive.gray10,
 });
