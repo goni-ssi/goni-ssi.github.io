@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { visualHiddenCss } from '../../../../styles/commons.css';
 import { copyToClipboard } from '../../../../utils/copy-to-clipboard';
+
 import { buttonCss } from './index.css';
 
 const delay = (duration: number) =>

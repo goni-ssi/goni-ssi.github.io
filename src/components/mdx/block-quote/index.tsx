@@ -1,7 +1,9 @@
-import { ComponentPropsWithoutRef } from 'react';
-import { blockQuoteCss } from './index.css';
+
 import { Blockquote as RadixBlockQuote } from '@radix-ui/themes';
 import clsx from 'clsx';
+import { ComponentPropsWithoutRef } from 'react';
+
+import { blockQuoteCss } from './index.css';
 
 type Props = Omit<ComponentPropsWithoutRef<'blockquote'>, 'color'>;
 

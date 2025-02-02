@@ -1,9 +1,12 @@
+
 import { MDXProvider } from '@mdx-js/react';
 import { PageProps } from 'gatsby';
 import { ReactNode } from 'react';
+
 import { GlobalFooter } from '../global-footer';
 import { GlobalHeader } from '../global-header';
 import { MdxComponents } from '../mdx';
+
 import { containerCss, contentCss } from './index.css';
 
 type Props = Omit<PageProps, 'children'> & {

@@ -1,9 +1,10 @@
-import globals from 'globals';
 import pluginEslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import prettierConfig from 'eslint-config-prettier';
+import importPlugin from 'eslint-plugin-import';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
-import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(
@@ -23,6 +24,62 @@ export default tseslint.config(
         'warn',
         {
           enableDangerousAutofixThisMayCauseInfiniteLoops: true,
+        },
+      ],
+    },
+  },
+  {
+    plugins: { import: importPlugin },
+    rules: {
+      'import/order': [
+        'error',
+        {
+          groups: ['type', 'builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          pathGroups: [
+            {
+              pattern: '@pages/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@components/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@hooks/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@utils/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@constants/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@models/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@styles/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@images/**',
+              group: 'internal',
+              position: 'after',
+            },
+          ],
+          alphabetize: { order: 'asc' },
+          'newlines-between': 'always',
+          pathGroupsExcludedImportTypes: [],
         },
       ],
     },

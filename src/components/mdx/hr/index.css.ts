@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+
 import { adaptive } from '../../../styles/colors';
 
 export const hrCss = style({

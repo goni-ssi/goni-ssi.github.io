@@ -1,4 +1,5 @@
 import { PageProps, graphql } from 'gatsby';
+
 import { Post } from '@components/post';
 import { SEO } from '@components/seo';
 

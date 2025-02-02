@@ -1,6 +1,8 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { adaptive } from '@styles/colors';
+
 import { LAYOUT_PADDING } from '@components/global-layout/index.css';
+
+import { adaptive } from '@styles/colors';
 
 export const headerCss = style({
   width: '100%',

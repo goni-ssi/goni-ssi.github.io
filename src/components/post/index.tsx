@@ -1,5 +1,8 @@
+
+import { Heading, Text } from '@radix-ui/themes';
 import { Link, PageProps } from 'gatsby';
 import { ReactNode } from 'react';
+
 import {
   postItemContainerCss,
   postItemDateCss,
@@ -8,7 +11,6 @@ import {
   postItemTitleCss,
   postListContainerCss,
 } from './index.css';
-import { Heading, Text } from '@radix-ui/themes';
 
 interface ListProps {
   children: ReactNode;

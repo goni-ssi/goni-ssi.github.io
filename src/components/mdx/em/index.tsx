@@ -1,6 +1,8 @@
+
 import { Em as RadixEm } from '@radix-ui/themes';
 import clsx from 'clsx';
 import { ComponentPropsWithoutRef } from 'react';
+
 import { emCss } from './index.css';
 
 type Props = Omit<ComponentPropsWithoutRef<'em'>, 'color'>;

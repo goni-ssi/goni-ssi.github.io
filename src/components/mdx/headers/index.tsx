@@ -1,6 +1,8 @@
+
 import { Heading } from '@radix-ui/themes';
 import clsx from 'clsx';
 import { ComponentPropsWithoutRef } from 'react';
+
 import { h1Css, h2Css, h3Css, h4Css, h5Css, h6Css } from './index.css';
 
 type Props = Omit<ComponentPropsWithoutRef<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>, 'color'>;

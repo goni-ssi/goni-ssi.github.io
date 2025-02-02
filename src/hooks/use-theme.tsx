@@ -1,5 +1,6 @@
 import { useTheme as useNextTheme } from 'next-themes';
 import { Dispatch, SetStateAction, useMemo } from 'react';
+
 export const useTheme = () => {
   const { theme, setTheme } = useNextTheme();
 

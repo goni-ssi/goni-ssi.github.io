@@ -1,7 +1,15 @@
+import { useLocation } from '@reach/router';
+import clsx from 'clsx';
 import { Link } from 'gatsby';
+
 import { useTheme } from '@hooks/use-theme';
+
+import { Paths } from '@constants/paths';
+
 import Moon from '@images/themes/moon.svg';
 import Sun from '@images/themes/sun.svg';
+
+
 import {
   bottomWrapperCss,
   headerCss,
@@ -13,9 +21,6 @@ import {
   themeButtonCss,
   topWrapperCss,
 } from './index.css';
-import clsx from 'clsx';
-import { Paths } from '@constants/paths';
-import { useLocation } from '@reach/router';
 
 export const GlobalHeader = () => {
   const { pathname } = useLocation();

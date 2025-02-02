@@ -10,12 +10,12 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@models/*": ["./src/models/*"],
-      "@constants/*": ["./src/constants/*"],
       "@utils/*": ["./src/utils/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@models/*": ["./src/models/*"],
       "@styles/*": ["./src/styles/*"],
       "@images/*": ["./src/images/*"]
     }

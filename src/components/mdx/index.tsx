@@ -1,21 +1,22 @@
+
+import { preToCodeBlock } from '@lekoarts/themes-utils';
+import { MDXProvider } from '@mdx-js/react';
+import { ComponentProps } from 'react';
+
 import { Anchor } from './anchor';
 import { BlockQuote } from './block-quote';
-import { Header1, Header2, Header3, Header4, Header5, Header6 } from './headers';
-import { InlineCode } from './inline-code';
-import { Paragraph } from './paragraph';
-import { UnorderedList } from './unordered-list';
-import { OrderedList } from './ordered-list';
-import { List } from './list';
-import { Input } from './input';
 import { CodeBlock } from './code-block';
-import { preToCodeBlock } from '@lekoarts/themes-utils';
-import { Hr } from './hr';
-
-import { ComponentProps } from 'react';
-import { MDXProvider } from '@mdx-js/react';
-import { Strong } from './strong';
 import { Em } from './em';
+import { Header1, Header2, Header3, Header4, Header5, Header6 } from './headers';
+import { Hr } from './hr';
+import { InlineCode } from './inline-code';
+import { Input } from './input';
 import { Kbd } from './kbd';
+import { List } from './list';
+import { OrderedList } from './ordered-list';
+import { Paragraph } from './paragraph';
+import { Strong } from './strong';
+import { UnorderedList } from './unordered-list';
 
 export const MdxComponents: ComponentProps<typeof MDXProvider>['components'] = {
   h1: Header1,

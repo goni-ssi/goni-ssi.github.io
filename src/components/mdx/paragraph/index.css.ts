@@ -1,4 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
+
 import { mdxCss } from '../../../styles/mdx.utils';
 
 export const paragraphCss = style([

@@ -1,5 +1,11 @@
+
 import { Text } from '@radix-ui/themes';
+import clsx from 'clsx';
 import { ComponentPropsWithoutRef, forwardRef, ReactNode, useEffect, useState } from 'react';
+
+import DirectionIcon from '@images/icons/direction.svg';
+
+
 import {
   buttonContentCss,
   buttonCss,
@@ -8,8 +14,6 @@ import {
   menuItemWrapperCss,
   selectedButtonIconCss,
 } from './index.css';
-import clsx from 'clsx';
-import DirectionIcon from '@images/icons/direction.svg';
 
 interface AccordionProps {
   className?: string;

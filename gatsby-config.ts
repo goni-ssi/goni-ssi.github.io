@@ -1,7 +1,9 @@
-import remarkGfm from 'remark-gfm';
 import type { GatsbyConfig } from 'gatsby';
-import 'dotenv/config';
+
 import rehypeMetaAsAttributes from '@lekoarts/rehype-meta-as-attributes';
+import remarkGfm from 'remark-gfm';
+
+import 'dotenv/config';
 import { AUTO_LINK_HEADER_CLASS_NAME } from './src/constants/plugins';
 
 const config: GatsbyConfig = {
@@ -35,12 +37,12 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-alias-imports',
       options: {
         aliases: {
-          '@components': 'src/components',
           '@pages': 'src/pages',
+          '@components': 'src/components',
           '@hooks': 'src/hooks',
-          '@models': 'src/models',
-          '@constants': 'src/constants',
           '@utils': 'src/utils',
+          '@constants': 'src/constants',
+          '@models': 'src/models',
           '@styles': 'src/styles',
           '@images': 'src/images',
         },

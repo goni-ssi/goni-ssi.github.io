@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import { ComponentPropsWithoutRef } from 'react';
+
+
 import { hrCss } from './index.css';
 
 type Props = ComponentPropsWithoutRef<'hr'>;

@@ -1,5 +1,6 @@
-import { adaptive } from '@styles/colors';
 import { globalStyle, style } from '@vanilla-extract/css';
+
+import { adaptive } from '@styles/colors';
 
 export const menuCss = style({});
 

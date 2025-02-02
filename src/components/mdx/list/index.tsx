@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import { Children, ComponentProps } from 'react';
-import { Paragraph } from '../paragraph';
-import { listCss, todoListCss } from './index.css';
+
+
 import { TASK_LIST_ITEM_CLASS_NAME } from '../../../constants/mdx';
+import { Paragraph } from '../paragraph';
+
+import { listCss, todoListCss } from './index.css';
 
 type Props = ComponentProps<'li'>;
 

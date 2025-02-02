@@ -1,8 +1,11 @@
+
 import clsx from 'clsx';
-import { ComponentPropsWithoutRef } from 'react';
-import { anchorCss, autoLinkHeaderCss } from './index.css';
-import { AUTO_LINK_HEADER_CLASS_NAME } from '../../../constants/plugins';
 import { Link } from 'gatsby';
+import { ComponentPropsWithoutRef } from 'react';
+
+import { AUTO_LINK_HEADER_CLASS_NAME } from '../../../constants/plugins';
+
+import { anchorCss, autoLinkHeaderCss } from './index.css';
 
 type Props = ComponentPropsWithoutRef<'a'>;
 
