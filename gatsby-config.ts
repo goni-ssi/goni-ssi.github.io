@@ -32,6 +32,21 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-alias-imports',
+      options: {
+        aliases: {
+          '@components': 'src/components',
+          '@pages': 'src/pages',
+          '@hooks': 'src/hooks',
+          '@models': 'src/models',
+          '@constants': 'src/constants',
+          '@utils': 'src/utils',
+          '@styles': 'src/styles',
+          '@images': 'src/images',
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],

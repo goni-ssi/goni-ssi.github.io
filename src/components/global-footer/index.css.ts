@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { LAYOUT_PADDING } from '../global-layout/index.css';
+import { LAYOUT_PADDING } from '@components/global-layout/index.css';
 
 export const FOOTER_HEIGHT = 60;
 

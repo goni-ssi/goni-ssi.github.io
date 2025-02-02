@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { adaptive } from '../../styles/colors';
+import { adaptive } from '@styles/colors';
 
 export const headerWrapperCss = style({
   marginTop: '32px',

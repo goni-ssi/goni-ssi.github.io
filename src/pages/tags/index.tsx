@@ -2,13 +2,14 @@ import { useLocation } from '@reach/router';
 import { upperFirst } from 'es-toolkit/string';
 import { PageProps, graphql } from 'gatsby';
 import { parse } from 'qs';
-import { Accordion } from '../../components/accordion';
-import { Post } from '../../components/post';
-import { SEO } from '../../components/seo';
-import { kebabCaseToSpaceLetter } from '../../utils/kebab-case-to-space-letter';
+
 import { accordionCss } from './index.css';
 import { useRef } from 'react';
-import { useIsomorphicLayoutEffect } from '../../hooks/use-isomorphic-layout-effect';
+import { useIsomorphicLayoutEffect } from '@hooks/use-isomorphic-layout-effect';
+import { kebabCaseToSpaceLetter } from '@utils/kebab-case-to-space-letter';
+import { Post } from '@components/post';
+import { Accordion } from '@components/accordion';
+import { SEO } from '@components/seo';
 
 const TagsPage = ({ data }: PageProps<Queries.TagsPageQuery>) => {
   const location = useLocation();
@@ -71,6 +72,7 @@ export const pageQuery = graphql`
           id
           fields {
             slug
+            readingTime
           }
           frontmatter {
             title

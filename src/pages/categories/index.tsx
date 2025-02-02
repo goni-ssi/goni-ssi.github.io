@@ -1,7 +1,7 @@
 import { PageProps, graphql } from 'gatsby';
-import { Post } from '../../components/post';
-import { SEO } from '../../components/seo';
-import { Accordion } from '../../components/accordion';
+import { Post } from '@components/post';
+import { SEO } from '@components/seo';
+import { Accordion } from '@components/accordion';
 import { upperFirst } from 'es-toolkit/string';
 import { accordionCss } from './index.css';
 

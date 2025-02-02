@@ -9,7 +9,7 @@ import {
   selectedButtonIconCss,
 } from './index.css';
 import clsx from 'clsx';
-import DirectionIcon from '../../images/icons/direction.svg';
+import DirectionIcon from '@images/icons/direction.svg';
 
 interface AccordionProps {
   className?: string;

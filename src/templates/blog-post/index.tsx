@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import { Link, PageProps, graphql } from 'gatsby';
-import { MdxComponents } from '../../components/mdx';
-import { SEO } from '../../components/seo';
+import { MdxComponents } from '@components/mdx';
+import { SEO } from '@components/seo';
 import { Badge, Button, Heading, Text } from '@radix-ui/themes';
 import {
   badgeCss,
@@ -13,7 +13,7 @@ import {
   postNavigationWrapperCss,
   prevPostButtonCss,
 } from './index.css';
-import DirectionIcon from '../../images/icons/direction.svg';
+import DirectionIcon from '@images/icons/direction.svg';
 import { kebabCase, upperFirst } from 'es-toolkit/string';
 
 type Post = {

@@ -1,6 +1,6 @@
 import { PageProps, graphql } from 'gatsby';
-import { Post } from '../components/post';
-import { SEO } from '../components/seo';
+import { Post } from '@components/post';
+import { SEO } from '@components/seo';
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
