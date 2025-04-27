@@ -1,6 +1,6 @@
 import { upperFirst } from 'es-toolkit/string';
 import { PageProps, graphql } from 'gatsby';
-
+import { useRef, useEffect } from 'react';
 
 import { Accordion } from '@components/accordion';
 import { Post } from '@components/post';

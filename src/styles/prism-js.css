@@ -43,7 +43,7 @@ li > code {
   -webkit-overflow-scrolling: touch;
   border-radius: 0.5rem;
   overflow: hidden;
-  margin: 4px 0;
+  margin: 16px 0;
 }
 
 .gatsby-highlight .token-line {

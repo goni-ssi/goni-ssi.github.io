@@ -177,3 +177,8 @@ button {
   --em-font-family: 'Noto Sans KR', 'Times New Roman', 'Times', serif;
   --quote-font-family: 'Noto Sans KR', 'Times New Roman', 'Times', serif;
 }
+
+/* 이미지 영역 위 아래 여백 조절 */
+.gatsby-resp-image-wrapper {
+  margin: 16px 0;
+}
