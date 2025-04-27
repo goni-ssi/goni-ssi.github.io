@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Install yarn
+        run: npm install -g yarn
 
-      - name: Install dependencies with pnpm
-        run: pnpm install
+      - name: Install dependencies with yarn
+        run: yarn install
 
       - name: create env
         run: |
@@ -31,7 +31,7 @@ jobs:
           echo "GA_ID=${{ secrets.GA_ID }}" >> .env
 
       - name: gatsby build
-        run: pnpm build
+        run: yarn build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

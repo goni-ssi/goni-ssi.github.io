@@ -9,12 +9,12 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "pnpm clean && gatsby develop",
-    "build": "pnpm clean && gatsby build",
+    "start": "yarn clean && gatsby develop",
+    "build": "yarn clean && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "pnpm build  && rm -rf ./node_modules/.cache/gh-pages && gh-pages -d public",
+    "deploy": "yarn build  && rm -rf ./node_modules/.cache/gh-pages && gh-pages -d public",
     "eslint": "eslint src"
   },
   "dependencies": {
@@ -33,7 +33,6 @@
     "gatsby-plugin-image": "^3.13.0",
     "gatsby-plugin-manifest": "^5.13.0",
     "gatsby-plugin-mdx": "^5.13.0",
-    "gatsby-plugin-pnpm": "^1.2.10",
     "gatsby-plugin-sharp": "^5.13.0",
     "gatsby-plugin-sitemap": "^6.13.0",
     "gatsby-plugin-vanilla-extract": "^4.0.1",

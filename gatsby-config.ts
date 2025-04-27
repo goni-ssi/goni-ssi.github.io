@@ -111,7 +111,6 @@ const config: GatsbyConfig = {
         ignore: ['**/*.css.(ts|tsx)'],
       },
     },
-    'gatsby-plugin-pnpm',
   ],
   trailingSlash: 'never',
 };
